@@ -11,7 +11,7 @@ import {
 } from "react-native";
 import React, { useState } from "react";
 
-import flagTargaryan from "./assets/targaryan-flag-1.jpg";
+import icone from "./assets/img-book.png";
 
 export default function App() {
   const [text, setText] = useState("");
@@ -30,18 +30,19 @@ export default function App() {
 
   return (
     <SafeAreaView style={styles.container}>
-      <Image style={styles.stretch} source={flagTargaryan} />
+     <Text style={styles.texto}>Cadastre seu Livro:</Text>
+     <View style={styles.boxSide}>
+      <Image style={styles.stretch} source={icone} />
 
-      <Text style={styles.texto}>Cadastre sua fala:</Text>
-
-      <View style={styles.flex}>
-        <Text style={styles.texto2}>Digite:</Text>
+      <View>
+        <Text style={styles.textoContraste}>Titulo:</Text>
         <TextInput
           style={styles.box}
           onChangeText={(newText) => setText(newText)}
           value={text}
         />
       </View>
+     </View>
 
       <View style={styles.flex}>
         <Button
@@ -73,6 +74,10 @@ const styles = StyleSheet.create({
     backgroundColor: "gray",
     padding: 8,
   },
+  stretch:{
+    width: 100,
+    height: 100
+  },
   phrase: {
     borderColor: "blue",
     borderRadius: 4,
@@ -87,24 +92,28 @@ const styles = StyleSheet.create({
     textAlign: "center",
   },
   box: {
-    width: "75%",
+    width: "100%",
     height: 35,
     borderWidth: 1,
-    padding: 5
+    padding: 5,
   },
-  texto2: {
+  textoContraste: {
     fontSize: 18,
     padding: 4,
   },
   flex: {
     flexDirection: "row",
     margin: 20,
-    gap: 20,
     justifyContent: 'center',
+    gap: 90
   },
  
   center: {
     justifyContent: "center",
     marginTop: 20,
   },
+  boxSide: {
+    flexDirection: "row",
+    alignItems: "center"
+  }
 });
